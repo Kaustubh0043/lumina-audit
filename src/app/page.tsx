@@ -58,9 +58,9 @@ export default function Home() {
           Lumina <span className="text-white/50 font-normal">Audit</span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
-          <a href="/PRICING_DATA.md" target="_blank" className="hover:text-white transition-colors">Pricing Data</a>
-          <a href="/ARCHITECTURE.md" target="_blank" className="hover:text-white transition-colors">How it works</a>
-          <a href="https://credex.rocks" target="_blank" className="hover:text-white transition-colors text-white font-semibold">Credex</a>
+          <a href="https://github.com/Kaustubh0043/lumina-audit/blob/master/PRICING_DATA.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Pricing Data</a>
+          <a href="https://github.com/Kaustubh0043/lumina-audit/blob/master/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">How it works</a>
+          <a href="https://credex.rocks" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-white font-semibold">Credex</a>
         </div>
         <Button 
           variant="outline" 
