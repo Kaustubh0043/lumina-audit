@@ -65,9 +65,11 @@ export default function Home() {
         <Button 
           variant="outline" 
           className="border-white/10 hover:bg-white/5 rounded-full px-5"
-          onClick={() => toast.info("Link your GitHub repo here before final submission!")}
+          asChild
         >
-          <CodeXml size={16} className="mr-2" /> View Repo
+          <a href="https://github.com/Kaustubh0043/lumina-audit" target="_blank" rel="noopener noreferrer">
+            <CodeXml size={16} className="mr-2" /> View Repo
+          </a>
         </Button>
       </nav>
 
