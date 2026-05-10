@@ -1,5 +1,8 @@
 # Lumina Audit — AI Spend Optimization
 
+**Live Demo**: [https://lumina-audit.vercel.app/](https://lumina-audit.vercel.app/)  
+**GitHub Repository**: [https://github.com/Kaustubh0043/lumina-audit](https://github.com/Kaustubh0043/lumina-audit)
+
 ## Project Summary
 Lumina Audit is a premium tool designed for startup founders and engineering managers to audit their AI tool spending. By analyzing current usage across major providers like Cursor, Claude, and OpenAI, Lumina provides actionable insights to reduce costs through plan optimization, credit sourcing, and alternative tool recommendations.
 
