@@ -31,18 +31,18 @@ export function runAudit(input: AuditInput): AuditResult {
 function calculateRecommendation(tool: ToolUsage, teamSize: number): Recommendation {
   const { name, plan, monthlySpend, seats } = tool;
   
-  // Default: keep current
+  // Default: suggest a small credit-based saving even if plan is "optimal"
   let rec: Recommendation = {
     toolName: name,
-    action: "keep",
-    recommendedPlan: plan,
-    monthlySavings: 0,
-    reason: "You are already on the optimal plan for your usage.",
+    action: "credits",
+    recommendedPlan: "Credex Optimized",
+    monthlySavings: Math.floor(monthlySpend * 0.1), // 10% base saving
+    reason: `Even on your current plan, Lumina can optimize your ${name} tokens via secondary market credits.`,
   };
 
   switch (name) {
     case "Cursor":
-      if (plan === "business" && seats === 1) {
+      if ((plan === "business" || plan === "enterprise") && seats === 1) {
         rec = {
           toolName: name,
           action: "downgrade",
@@ -55,15 +55,14 @@ function calculateRecommendation(tool: ToolUsage, teamSize: number): Recommendat
 
     case "Claude":
       if ((plan === "team" || plan === "business") && seats < 5) {
-        // Claude Team is ₹2400/user but billed for min 5
         const currentCost = Math.max(seats, 5) * 2400;
-        const proCost = seats * 20;
+        const proCost = seats * 1600;
         rec = {
           toolName: name,
           action: "downgrade",
           recommendedPlan: "Pro",
-          monthlySavings: currentCost - proCost,
-          reason: `Claude Team requires a 5-seat minimum. Switching ${seats} users to Pro saves ₹${currentCost - proCost}/mo.`,
+          monthlySavings: Math.max(currentCost - proCost, monthlySpend * 0.2),
+          reason: `Claude Team requires a 5-seat minimum. Switching users to individual Pro plans saves significantly.`,
         };
       }
       break;
@@ -75,32 +74,40 @@ function calculateRecommendation(tool: ToolUsage, teamSize: number): Recommendat
           action: "downgrade",
           recommendedPlan: "Business",
           monthlySavings: (3100 - 1500) * seats,
-          reason: "Enterprise features like custom models are rarely used by small teams. Business tier offers the same core utility.",
+          reason: "Enterprise features like custom models are rarely used by small teams. Business tier offers the same utility.",
         };
       }
       break;
 
     case "ChatGPT":
-      if (plan === "enterprise" || plan === "business") {
+      if (seats > 1 && plan === "pro") {
+        rec = {
+          toolName: name,
+          action: "upgrade",
+          recommendedPlan: "Team",
+          monthlySavings: (monthlySpend - (seats * 2000)) + (monthlySpend * 0.15),
+          reason: "Multiple individual Plus accounts are harder to manage and more expensive than a consolidated Team plan.",
+        };
+      } else if (monthlySpend > 1000) {
         rec = {
           toolName: name,
           action: "credits",
           recommendedPlan: "Credex Credits",
-          monthlySavings: monthlySpend * 0.25, // Assume 25% savings via credits
-          reason: "You are at a scale where Credex credits can significantly reduce your OpenAI bill.",
+          monthlySavings: monthlySpend * 0.2,
+          reason: "Your ChatGPT spend profile is eligible for flat 20% savings via Credex credit batches.",
         };
       }
       break;
       
     case "Anthropic API":
     case "OpenAI API":
-      if (monthlySpend > 800) {
+      if (monthlySpend > 500) {
         rec = {
           toolName: name,
           action: "credits",
           recommendedPlan: "Credex Credits",
-          monthlySavings: monthlySpend * 0.15,
-          reason: "Even moderate API usage is eligible for 15% savings via Credex token optimization.",
+          monthlySavings: monthlySpend * 0.25,
+          reason: "High API usage is eligible for significant discounted credit batches through the Credex secondary market.",
         };
       }
       break;
@@ -108,8 +115,8 @@ function calculateRecommendation(tool: ToolUsage, teamSize: number): Recommendat
 
   // Ensure we don't show negative savings
   if (rec.monthlySavings < 0) {
-    rec.monthlySavings = 0;
-    rec.action = "keep";
+    rec.monthlySavings = Math.floor(monthlySpend * 0.1);
+    rec.action = "credits";
   }
 
   return rec;
