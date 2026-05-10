@@ -7,17 +7,17 @@
 
 ## Where they hang out
 - **X (Twitter)**: Following accounts like @levelsio, @shl, and AI researchers.
-- **Slack/Discord**: Founder-specific groups (e.g., YC alumni, South Park Commons, or local startup hubs).
+- **LinkedIn**: Indiar startup hubs (e.g., Bengaluru/Pune/NCR tech founders).
 - **Subreddits**: r/startups, r/SaaS, r/ChatGPTCoding.
 
-## First 100 Users ($0 Budget)
-1. **The "Public Audit" Thread**: I will take 3 well-known startups with public headcount data, estimate their AI spend using Lumina, and post an X thread: "I audited [Startup X]'s AI spend. They're wasting $4k/mo. Here's how any founder can do the same in 2 minutes."
+## First 100 Users (₹0 Budget)
+1. **The "Public Audit" Thread**: I will take 3 well-known Indian startups with public headcount data, estimate their AI spend using Lumina, and post an X/LinkedIn thread: "I audited [Startup X]'s AI spend. They're wasting ₹3 Lakhs/year. Here's how any founder can do the same in 2 minutes."
 2. **Hacker News "Show HN"**: Frame it as a "Mint for AI" utility. Focus on the transparency aspect.
-3. **Cold DM on X**: Search for people complaining about "Cursor price hikes" or "OpenAI credit expiration" and offer the tool as a way to find alternatives.
+3. **Cold DM on X/LinkedIn**: Search for people complaining about "Cursor price hikes" or "OpenAI credit expiration" and offer the tool as a way to find alternatives.
 
 ## Unfair Distribution Channel
 **Credex's Existing Credit Inventory**
-Lumina isn't just a calculator; it's a bridge to proprietary discounts. The "unfair" advantage is the real-time API integration with Credex's inventory. When Lumina says "You can save $200 on Claude," it's because Credex literally has that credit batch ready to sell.
+Lumina isn't just a calculator; it's a bridge to proprietary discounts. The "unfair" advantage is the real-time API integration with Credex's inventory. When Lumina says "You can save ₹16,000 on Claude," it's because Credex literally has that credit batch ready to sell at a discount.
 
 ## Week 1 Traction
 - **Goal**: 100 completed audits.
