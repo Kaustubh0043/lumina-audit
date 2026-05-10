@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { generateAuditSummary } from "@/app/actions/audit";
 import { saveAudit } from "@/app/actions/storage";
 import { toast } from "sonner";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const [view, setView] = useState<"landing" | "form" | "results">("landing");
@@ -62,15 +64,14 @@ export default function Home() {
           <a href="https://github.com/Kaustubh0043/lumina-audit/blob/master/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">How it works</a>
           <a href="https://credex.rocks" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-white font-semibold">Credex</a>
         </div>
-        <Button 
-          variant="outline" 
-          className="border-white/10 hover:bg-white/5 rounded-full px-5"
-          asChild
+        <a 
+          href="https://github.com/Kaustubh0043/lumina-audit" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={cn(buttonVariants({ variant: "outline" }), "border-white/10 hover:bg-white/5 rounded-full px-5 flex items-center")}
         >
-          <a href="https://github.com/Kaustubh0043/lumina-audit" target="_blank" rel="noopener noreferrer">
-            <CodeXml size={16} className="mr-2" /> View Repo
-          </a>
-        </Button>
+          <CodeXml size={16} className="mr-2" /> View Repo
+        </a>
       </nav>
 
       <div className="container mx-auto px-6 pt-12 md:pt-24 relative z-10">
