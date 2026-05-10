@@ -193,9 +193,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 Lumina Audit. Built for the Credex Intern Assignment.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-white">Terms</a>
-            <a href="#" className="hover:text-white">GitHub</a>
+            <a href="https://github.com/Kaustubh0043/lumina-audit/blob/master/LEGAL.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy</a>
+            <a href="https://github.com/Kaustubh0043/lumina-audit/blob/master/LEGAL.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Terms</a>
+            <a href="https://github.com/Kaustubh0043/lumina-audit" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
           </div>
         </div>
       </footer>
