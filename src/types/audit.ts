@@ -27,7 +27,7 @@ export interface AuditInput {
 
 export interface Recommendation {
   toolName: ToolName;
-  action: 'downgrade' | 'switch' | 'optimize' | 'keep' | 'credits';
+  action: 'downgrade' | 'upgrade' | 'switch' | 'optimize' | 'keep' | 'credits';
   recommendedPlan: string;
   monthlySavings: number;
   reason: string;
